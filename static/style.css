@@ -1,0 +1,34 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  background: #080d18;
+  color: #eef4ff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 5%, #16304a 0, transparent 35%), #080d18;
+}
+.shell { width: min(900px, calc(100% - 32px)); margin: 0 auto; padding: 64px 0 32px; }
+.hero { text-align: center; margin-bottom: 34px; }
+.eyebrow { color: #48dfb0; font-size: .75rem; font-weight: 800; letter-spacing: .16em; }
+h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); margin: 12px 0; }
+h1 span { color: #48dfb0; }
+.intro, .muted, .hint { color: #a9b7ca; line-height: 1.6; }
+.panel { background: #111b2b; border: 1px solid #26374e; border-radius: 22px; padding: 28px; margin: 20px 0; box-shadow: 0 18px 55px #0005; }
+h2 { margin: 0 0 8px; }
+.dropzone { min-height: 170px; margin: 22px 0 14px; border: 1px dashed #4b6c82; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 9px; cursor: pointer; background: #0b1422; text-align: center; }
+.upload-icon { font-size: 2rem; color: #48dfb0; }
+input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+button, .download { display: inline-block; border: 0; border-radius: 12px; padding: 13px 20px; background: #48dfb0; color: #062019; font-weight: 800; text-decoration: none; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; }
+.hint { font-size: .88rem; }
+.alert { margin-top: 18px; padding: 12px 14px; border-radius: 10px; color: #ffd9d9; background: #54252b; }
+.stats { display: flex; gap: 14px; margin: 22px 0; flex-wrap: wrap; }
+.stat { flex: 1; min-width: 180px; background: #0b1422; border: 1px solid #26374e; padding: 18px; border-radius: 14px; display: flex; flex-direction: column; gap: 6px; }
+.stat strong { font-size: 2rem; color: #48dfb0; }
+.stat span { color: #a9b7ca; }
+video { width: 100%; border-radius: 14px; background: #000; margin: 4px 0 18px; }
+footer { text-align: center; color: #8292a8; font-size: .82rem; padding: 24px 0; }
+@media (max-width: 600px) { .shell { padding-top: 36px; } .panel { padding: 20px; } }
