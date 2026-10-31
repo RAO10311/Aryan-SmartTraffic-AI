@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aryan SmartTraffic AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">COMPUTER VISION · INTELLIGENT TRANSPORT</p>
+      <h1>Aryan <span>SmartTraffic AI</span></h1>
+      <p class="intro">Upload a road video to detect, track, and count vehicles with AI.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Analyze traffic video</h2>
+      <p class="muted">Supported formats: MP4, AVI, MOV, MKV · Maximum size: 200 MB</p>
+      <form method="POST" enctype="multipart/form-data" id="upload-form">
+        <label class="dropzone" for="video">
+          <span class="upload-icon">↑</span>
+          <strong id="file-label">Choose a traffic video</strong>
+          <span class="muted">or click here to browse your files</span>
+        </label>
+        <input type="file" id="video" name="video" accept=".mp4,.avi,.mov,.mkv" required>
+        <button type="submit" id="submit-button">Analyze video</button>
+      </form>
+      <p class="hint" id="status" aria-live="polite">Processing can take some time depending on video length and hardware.</p>
+      {% if error %}
+        <div class="alert">{{ error }}</div>
+      {% endif %}
+    </section>
+
+    {% if result_video %}
+    <section class="panel results">
+      <p class="eyebrow">ANALYSIS COMPLETE</p>
+      <h2>Detection results</h2>
+      <div class="stats">
+        <div class="stat"><strong>{{ vehicle_count }}</strong><span>Unique tracked vehicles</span></div>
+        <div class="stat"><strong>{{ frame_count }}</strong><span>Frames processed</span></div>
+      </div>
+      <video controls playsinline src="{{ result_video }}"></video>
+      <a class="download" href="{{ result_video }}" download="smarttraffic-annotated.mp4">Download annotated video</a>
+    </section>
+    {% endif %}
+
+    <footer>Educational prototype · Not intended for traffic enforcement or safety-critical decisions.</footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
